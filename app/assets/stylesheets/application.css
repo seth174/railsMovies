@@ -1,0 +1,185 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ #intheformtable {
+   margin-left: 20px;
+ }
+
+#intheformtable th {
+  font-size: 100px;
+}
+
+#newreviewh1 {
+  font-size: 30px;
+  margin-left: 25px;
+  color: #1e1e1e;
+  text-align: center;
+}
+
+ #h4users {
+   font-size: 30px;
+   color: #1e1e1e;
+   margin-left: 10px;
+ }
+
+#pnextto {
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-left: 10px;
+}
+
+ #reviewstable {
+   padding-top: 12px;
+   padding-bottom: 12px;
+   margin-left: 10px;
+   text-align: left;
+   color: white;
+   font-size: 15px;
+   border: 1px solid black;
+ }
+
+#reviewstable tr {
+  border: 1px solid black;
+  text-align: left;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+ #reviewstable th {
+   padding-left: 10px;
+   color: black;
+   padding-bottom: 10px;
+   text-align: left;
+   border: 1px solid black;
+   padding-right: 10px;
+ }
+
+ #reviewstable td{
+   padding-left: 10px;
+   border: 1px solid black;
+   padding-right: 10px;
+ }
+
+
+
+ #header{
+   background-color: #d50404;
+   padding-bottom: 30px;
+   padding-top: 30px;
+   margin-bottom: 0px;
+ }
+
+ body {
+   margin: 0;
+   background-color: #d50404;
+ }
+
+ .logo{
+   float: left;
+   position: absolute;
+   margin-left: 10px;
+   margin-right: 0px;
+ }
+
+
+ #titletest{
+   text-align: center;
+   font-size: 60px;
+   font-weight: bold;
+   color: #1e1e1e;
+   text-shadow: 2px 2px #1e1e1e;
+   margin-left: 0px;
+ }
+
+ #nav{
+   list-style-type: none;
+   overflow: hidden;
+   background-color: #FFFFFF;
+   margin: 3px;
+   padding: 1px;
+   text-align: center;
+
+ }
+
+
+
+ #nav li{
+   border-right: 1px solid #1e1e1e;
+   display: inline-block;
+   text-align: center;
+   margin: auto;
+   font-family: fantasy, copperplate;
+   font-size: 20px;
+   color: #1e1e1e;
+   padding-left: 15px;
+	 padding-right: 15px;
+   font-weight: bold;
+ }
+
+ #nav li:last-child {
+ 	border-right: none;
+ }
+
+ .links{
+   text-decoration: none;
+   color: #1e1e1e;
+   display: block;
+   text-align: center;
+   padding: 14px 16px;
+ }
+
+ .links:hover{
+   color: #d50404;
+   background-color: #1e1e1e;
+ }
+
+ #footer{
+   margin: 0;
+   text-align: center;
+   padding: 15px;
+   font-size: 25px;
+   color: #1e1e1e;
+   font-family: "Georgia", serif;
+ }
+
+ #h1reviews {
+   color: #1e1e1e;
+   margin-left: 10px;
+ }
+
+ .logo{
+   float: left;
+   margin-left: 10px;
+ }
+
+ #titletext{
+  text-align: center;
+  font-size: 60px;
+  color: #1e1e1e;
+}
+
+.center{
+  text-align: center;
+}
+
+.Reviewers h1:link{
+  text-decoration: none;
+  color: white;
+}
+
+.Reviewers h1{
+  margin-left: 20px;
+}

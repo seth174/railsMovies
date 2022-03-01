@@ -1,0 +1,13 @@
+<% provide(:title, 'All Reviewers') %>
+<div class="Reviewers">
+  <p id = "punderbig"><%=link_to 'Create Movie Review', {controller: 'reviews', action:'new'}, class: 'links'%></p>
+
+
+  <h1>Reviewers</h1>
+
+  <% if @users %>
+    <% @users.each do |user| %>
+      <h1> <%= link_to user.name, controller: "users", action: "show", id: user.id, class: 'links' %></h1>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<div id='footer'>
+  <hr id = "hrbar">
+  <footer>Developed by Seth using Ruby On Rails</footer>
+  <% if logged_in? %>
+    <%= button_to "Log Out", logout_path, method: :delete %>
+  <%end%>
+</div>

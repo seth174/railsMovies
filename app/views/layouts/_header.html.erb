@@ -1,0 +1,16 @@
+<div id="header">
+  <%= image_tag 'film.jpg.webp', alt: 'film', height: '100', width: '150', class: 'logo' %>
+  <h1 id="titletext">Movie Review</h1>
+</div>
+<ul id="nav">
+  <li><%=link_to 'Home', {controller: 'static', action:'home'}, class: 'links'%></li>
+  <li><%= link_to 'Users',  {controller: 'users', action:'index'}, class: 'links' %></li>
+  <li><%=link_to 'Movies', {controller: 'movies', action:'index'}, class: 'links'%></li>
+  <% if logged_in? %>
+    <li><%= link_to 'Profile', current_user, class: 'links' %></li>
+    <li><%= link_to 'Settings', edit_user_path(current_user), class: 'links' %></li>
+  <% else %>
+      <li><%= link_to 'Log in', login_path,  class: 'links'%></li>
+  <% end %>
+
+</ul>

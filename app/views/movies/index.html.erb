@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+
+<%= link_to "New movie", new_movie_path %>
+
+<h1>Movies</h1>
+
+<div id="movies">
+  <% if @movies %>
+    <% @movies.each do |movie| %>
+      <p id = "punderbig"><%= movie.title %>, <%= link_to "reviews", controller: "movies", action: "index", id: movie.id %></p>
+    <% end %>
+  <% end %>
+
+  <% if @movieReviews != nil %>
+    <h4 id = "h4users"><%= @movieReviews.title %></h4>
+    <p id = "puserage">Release Year: <%= @movieReviews.release_year %></p>
+    <p id = "puserage">Description: <%= @movieReviews.description %></p>
+    <p id = "puserage">Parental Rating: <%= @movieReviews.parental_rating %></p>
+    <p id = "puserage">Average Review Score: <%= get_average_rating(@movieReviews)%></p>
+
+    <table id="reviewstable">
+      <%if (@movieReviews.reviews.length > 0) %>
+        <tr>
+          <th>User</th>
+          <th>Rating</th>
+          <th>Review</th>
+        </tr>
+        <%@movieReviews.reviews.each do |review| %>
+          <tr>
+            <td> <%= review.user.name %> </td>
+            <td> <%= review.rating %> </td>
+            <td> <%= review.review %> </td>
+          </tr>
+        <%end%>
+      <%end%>
+    </table>
+
+
+  <% end %>
