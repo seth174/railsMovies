@@ -1,12 +1,13 @@
 <% provide(:title, @user.name) %>
-<p><%=@user.name%></p>
 
-<h4 id = "h4users"><%= @user.name %></h4>
-<p id = "puserage">User Age: <%= @user.age %></p>
+<h1 class='center'><%= @user.name %>'s Reviews</h1>
+<p>User Age: <%= @user.age %></p>
+<p>Here are all the movies that <%= @user.name %> has reviewed</p>
 <br>
 
-<table id="reviewstable">
+
   <%if (@user.reviews.length > 0) %>
+  <table id="reviewstable">
     <tr>
       <th>Movie</th>
       <th>Rating</th>
@@ -17,8 +18,14 @@
           <td> <%= review.movie.title %> </td>
           <td> <%= review.rating %> </td>
           <td> <%= review.review %> </td>
+          <%if current_user == review.user %>
+            <td><%= link_to 'Edit', {controller: "movies", action: "edit", id: review.movie.id}, class: 'links' %></td>
+          <%end%>
       </tr>
+
     <%end%>
+    </table>
+  <%else%>
+    <h1 class="white">This user has not reviewed anything yet</h1>
 
   <%end%>
-</table>

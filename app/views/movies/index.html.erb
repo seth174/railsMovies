@@ -1,40 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
 
-<%= link_to "New movie", new_movie_path %>
-
-<h1>Movies</h1>
+<% if logged_in? %>
+  <h1><%= link_to "Click Me To Create A New New movie", new_movie_path, class: 'links2' %></h1>
+<% else %>
+  <h1 class="center white">Please log in to create Movies for the community to review</h1>
+<% end %>
+<h1 class="white">Click on a movie to see reviews</h1>
+<br><br>
+<h1 class="white">Movies:</h1>
 
 <div id="movies">
   <% if @movies %>
     <% @movies.each do |movie| %>
-      <p id = "punderbig"><%= movie.title %>, <%= link_to "reviews", controller: "movies", action: "index", id: movie.id %></p>
+      <h1> <%= link_to movie.title, {controller: "movies", action: "show", id: movie.id}, class: 'links' %></h1>
     <% end %>
   <% end %>
 
-  <% if @movieReviews != nil %>
-    <h4 id = "h4users"><%= @movieReviews.title %></h4>
-    <p id = "puserage">Release Year: <%= @movieReviews.release_year %></p>
-    <p id = "puserage">Description: <%= @movieReviews.description %></p>
-    <p id = "puserage">Parental Rating: <%= @movieReviews.parental_rating %></p>
-    <p id = "puserage">Average Review Score: <%= get_average_rating(@movieReviews)%></p>
-
-    <table id="reviewstable">
-      <%if (@movieReviews.reviews.length > 0) %>
-        <tr>
-          <th>User</th>
-          <th>Rating</th>
-          <th>Review</th>
-        </tr>
-        <%@movieReviews.reviews.each do |review| %>
-          <tr>
-            <td> <%= review.user.name %> </td>
-            <td> <%= review.rating %> </td>
-            <td> <%= review.review %> </td>
-          </tr>
-        <%end%>
-      <%end%>
-    </table>
-
-
-  <% end %>
+</div>

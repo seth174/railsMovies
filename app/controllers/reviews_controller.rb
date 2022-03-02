@@ -23,12 +23,18 @@ class ReviewsController < ApplicationController
   # POST /reviews or /reviews.json
   def create
     @review = Review.new(review_params)
+    unless(Review.search(@review.user_id, @review.movie_id).to_a.empty?)
+      flash['error'] = 'Review already exists'
+      redirect_to current_user
+      return
+    end
 
     respond_to do |format|
       if @review.save
         format.html { redirect_to current_user, notice: "Review was successfully created." }
         format.json { render :show, status: :created, location: @review }
       else
+        options()
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end

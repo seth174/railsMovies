@@ -4,9 +4,6 @@ class MoviesController < ApplicationController
   # GET /movies or /movies.json
   def index
     @movies = Movie.all
-    if params[:id] != nil
-      @movieReviews = Movie.find(params[:id])
-    end
   end
 
   # GET /movies/1 or /movies/1.json

@@ -9,6 +9,8 @@
   <% if logged_in? %>
     <li><%= link_to 'Profile', current_user, class: 'links' %></li>
     <li><%= link_to 'Settings', edit_user_path(current_user), class: 'links' %></li>
+    <li><%= link_to 'Create Movie',  {controller: 'movies', action:'new'}, class: 'links' %></li>
+    <li><%=link_to 'Create Review', {controller: 'reviews', action:'new'}, class: 'links'%></li>
   <% else %>
       <li><%= link_to 'Log in', login_path,  class: 'links'%></li>
   <% end %>

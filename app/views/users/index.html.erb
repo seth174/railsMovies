@@ -1,13 +1,17 @@
 <% provide(:title, 'All Reviewers') %>
 <div class="Reviewers">
-  <p id = "punderbig"><%=link_to 'Create Movie Review', {controller: 'reviews', action:'new'}, class: 'links'%></p>
 
+  <% if logged_in? %>
+    <h1><%=link_to 'Click To Create New Movie Review', {controller: 'reviews', action:'new'}, class: 'links2'%></h1>
+  <% else %>
+    <h1 class="center white">Please log in to create Movie Reviews</h1>
+  <% end %>
 
-  <h1>Reviewers</h1>
+  <h1>Click on a reviewers name to see the movies that they have reviewed</h1>
 
   <% if @users %>
     <% @users.each do |user| %>
-      <h1> <%= link_to user.name, controller: "users", action: "show", id: user.id, class: 'links' %></h1>
+      <h1> <%= link_to user.name, {controller: "users", action: "show", id: user.id}, class: 'links' %></h1>
     <% end %>
   <% end %>
 </div>

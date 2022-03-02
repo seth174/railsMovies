@@ -1,11 +1,11 @@
 <%= form_with(model: review) do |form| %>
   <% if review.errors.any? %>
-    <div style="color: red">
+    <div style="color: blue" class="center">
       <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
       <ul>
         <% review.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li style="list-style-type: none;"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>

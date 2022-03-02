@@ -1,22 +1,29 @@
-<div id="<%= dom_id movie %>">
-  <p>
-    <strong>Title:</strong>
-    <%= movie.title %>
-  </p>
+<% if @movie != nil %>
+  <h4 id = "h4users"><%= @movie.title %></h4>
+  <p id = "puserage">Release Year: <%= @movie.release_year %></p>
+  <p id = "puserage">Description: <%= @movie.description %></p>
+  <p id = "puserage">Parental Rating: <%= @movie.parental_rating %></p>
+  <p id = "puserage">Average Review Score: <%= get_average_rating(@movie)%></p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= movie.description %>
-  </p>
 
-  <p>
-    <strong>Release year:</strong>
-    <%= movie.release_year %>
-  </p>
+    <%if (@movie.reviews.length > 0) %>
+      <table id="reviewstable">
+      <tr>
+        <th>User</th>
+        <th>Rating</th>
+        <th>Review</th>
+      </tr>
+      <%@movie.reviews.each do |review| %>
+        <tr>
+          <td> <%= review.user.name %> </td>
+          <td> <%= review.rating %> </td>
+          <td> <%= review.review %> </td>
+          <%if current_user == review.user %>
+            <td><%= link_to 'Edit', {controller: "movies", action: "edit", id: movie.id}, class: 'links' %></td>
+          <%end%>
+        </tr>
+      <%end%>
+      </table>
+    <%end%>
 
-  <p>
-    <strong>Parental rating:</strong>
-    <%= movie.parental_rating %>
-  </p>
-
-</div>
+<%end%>
